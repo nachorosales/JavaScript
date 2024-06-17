@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Reclamos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h1 class="mb-0">Uber Reclamos</h1>
+                    <p class="lead">Tu espacio para expresar tus opiniones y reclamos sobre Uber</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>¿Cómo podemos ayudarte?</h2>
+                        <p class="lead">Esta página está diseñada para recibir tus reclamos y comentarios sobre el servicio de Uber.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="img1.jpg" class="img-fluid rounded" alt="Imagen de Uber">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Sobre Nosotros</h2>
+                        <p>Somos un equipo dedicado a mejorar la experiencia de los usuarios de Uber a través de la recopilación y gestión de reclamos.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="img2.jpg" class="img-fluid rounded" alt="Imagen del equipo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-light">
+            <div class="container">
+                <h2 class="text-center mb-4">Envíanos tu reclamo</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form action="#" id="reclamoForm">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar reclamo</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Uber Reclamos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mostrar mensaje de bienvenida al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            alert(`¡Bienvenido a Uber Reclamos!`);
+        });
+
+        // Manejar el envío del formulario
+        document.getElementById('reclamoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var nombre = document.getElementById('nombre').value;
+            var email = document.getElementById('email').value;
+            var fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+            var mensaje = document.getElementById('mensaje').value;
+
+            // Calcular días vividos desde la fecha de nacimiento
+            var diferenciaTiempo = Date.now() - fechaNacimiento.getTime();
+            var diasVividos = Math.floor(diferenciaTiempo / (1000 * 3600 * 24));
+
+            // Mostrar mensaje con días vividos
+            alert(`Hola ${nombre}, has vivido aproximadamente ${diasVividos} días desde tu nacimiento. Tu reclamo ha sido recibido. ¡Gracias por tu feedback!`);
+        });
+    </script>
+</body>
+</html>
